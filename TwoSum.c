@@ -11,11 +11,11 @@ int* twoSum(int* nums, int numsSize, int target) {
  {
       re[0] = i;
       f = target - nums[i];
-      if(i == f) continue;
       for(j =0 ;j < numsSize; j++)
 	{
 	  if(nums[j] == f)
 	  {
+	    if(i == j) continue;//one num can only be  used once
 	    re[1] = j;
 	    return re;//found the two num
 	  }	
@@ -27,9 +27,9 @@ int* twoSum(int* nums, int numsSize, int target) {
 }
 int main()
 {
-  int numsSize = 4;
-  int nums[4] = {2,7,11,15};
-  int target = 9;
+  int numsSize = 3;
+  int nums[3] = {3,2,4};
+  int target = 6;
   int *re = twoSum(nums,numsSize,target);
   printf("%d,",re[0]);
   printf("%d",re[1]);
