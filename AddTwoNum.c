@@ -25,7 +25,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
   l1 = l1->next;
   l2 = l2->next;
   ret -> next = NULL;
-  while(l1 != NULL || l2 != NULL || carry == 1)
+  while(l1 != NULL || l2 != NULL )
   {
         struct ListNode* t = (struct ListNode*)malloc(sizeof(struct ListNode));
         if(l1 == NULL) {l1v = 0;}else{l1v = l1->val;l1 = l1->next;}
@@ -37,6 +37,13 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
         t->next = NULL;
         ret->next = t;
         ret = t;
+  }
+  if(carry == 1)
+  {
+	struct ListNode* p = (struct ListNode*)malloc(sizeof(struct ListNode));
+	p->val = 1; 
+	p->next = NULL;
+	ret->next = p;
   }
   return re;  
 return re;
